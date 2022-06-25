@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\Admin\AdminController;
@@ -65,6 +66,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [FrontendController::class, 'index'])->name('homepage');
+Route::get('/contact', [ContactController::class, 'index'])->name('frontend.contact');
 
 Route::get('/vision', [AboutController::class, 'vision'])->name('frontend.about.vision');
 Route::get('/mission', [AboutController::class, 'mission'])->name('frontend.about.mission');
@@ -73,8 +75,12 @@ Route::get('/our-certificate', [AboutController::class, 'certificate'])->name('f
 
 Route::get('/service', [ServiceController::class, 'index'])->name('frontend.service');
 Route::get('/work', [FrontendController::class, 'work'])->name('frontend.work');
-Route::get('/blog', [BlogController::class, 'index'])->name('frontend.blog');
-Route::get('/contact', [ContactController::class, 'index'])->name('frontend.contact');
+
+Route::get('/event', [EventController::class, 'index'])->name('frontend.event');
+Route::get('/event/{id}', [EventController::class, 'eventDetails'])->name('frontend.eventdetails');
+Route::get('/events/{month}', [EventController::class, 'monthlyEvent'])->name('frontend.monthlyevent');
+
+Route::get('/news/{id}', [EventController::class, 'newsDetails'])->name('frontend.newsdetails');
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/gallery/{id}', [GalleryController::class, 'galleryDetails'])->name('galleryDetails');

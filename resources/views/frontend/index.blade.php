@@ -12,9 +12,6 @@
             aria-label="Slide 1"></button>
             @endforeach
             
-
-
-           
         </div>
         <div class="carousel-inner">
 
@@ -23,9 +20,6 @@
                 <img src="{{asset('frontend/slider/'.$item->photo)}}" class="d-block w-100">
             </div>
             @endforeach
-
-            
-           
 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
@@ -52,7 +46,7 @@
                     @foreach (\App\Models\Blog::orderby('id','DESC')->get() as $blog)
                         <div class="p-3">
                             <div class="blogBox card-style">
-                                <img src="{{asset('images/thumbnail/'.$blog->image)}}" class="img-fluid">
+                                <img src="{{asset('images/'.$blog->image)}}" class="img-fluid">
                                 <div class="content">
                                     <div class="d-flex justify-content-between flex-wrap py-2 ">
                                         <div>
@@ -68,13 +62,11 @@
                                     </div>
                                     <h3 class="title">{{ $blog->title }} </h3>
                                     <p class="text-muted">{!! $blog->description !!} </p>
-                                    <a href="" class="btn-theme">Read More</a>
+                                    <a href="{{route('frontend.eventdetails',$blog->id)}}" class="btn-theme">Read More</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
-
 
                 </div>
             </div>
@@ -91,9 +83,6 @@
                 </div>
             </div>
             <div class="row mt-4">
-
-
-
 
                 @foreach (\App\Models\News::orderby('id','DESC')->orderby('id','DESC')->limit(4)->get() as $news)
                 <div class="col-lg-3 col-md-6 col-sm-12">
@@ -115,16 +104,12 @@
                             <p class="text-muted">{!! $news->description !!}
 
                             </p>
-                            <a href="" class="btn-theme">Read More</a>
+                            <a href="{{route('frontend.newsdetails',$news->id)}}" class="btn-theme">Read More</a>
                         </div>
                     </div>
                 </div>
 
                 @endforeach
-
-
-
-                
 
             </div>
         </div>
@@ -154,8 +139,6 @@
                     </div>
                     
                 @endforeach
-
-
                 </div>
             </div>
         </div>

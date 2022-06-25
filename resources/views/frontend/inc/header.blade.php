@@ -57,7 +57,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">events</a>
+                            <a class="nav-link" href="{{ route('frontend.event')}}">events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">research</a>
